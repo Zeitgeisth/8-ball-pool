@@ -1,6 +1,7 @@
 #include<SFML\Graphics.hpp>
 #include "Ball.h"
 #include<iostream>
+#include"cue.h"
 #include <vector>
 #define HEIGHT 700
 #define WIDTH 1480
@@ -40,28 +41,6 @@ public:
 	}
 };
 
-class cue
-{
-private:
-	sf::Texture cuetexture;
-	const char *file;
-public:
-	sf::Sprite scue;
-	cue(const char *file_path)
-	{
-		//file = file_path;
-		if (!cuetexture.loadFromFile(file_path))
-		{
-			std::cout << "Failed" << std::endl;
-		}
-		scue.setTexture(cuetexture);
-		scue.setPosition(-100.0, 300.0);
-		scue.setScale(sf::Vector2f(0.3f, 0.3f));
-		
-		scue.rotate(45);
-	}
-};
-
 int main()
 {
 	float ballposx = 0, ballposy = 0;
@@ -97,8 +76,9 @@ int main()
 	Ball b15(15.0, texture_circle, "ball.png", sf::Vector2f(400.0f, 350.0f));
 	b15.white();
 	
+	
 
-	cue cue("cue.png");
+	cue cue("cue.png",sf::Vector2f(-100.0f,300.0f));
 
 
 
@@ -126,7 +106,9 @@ int main()
 		b15.update();
 		b15.collission(b14);
 		//b16.draw(window);
-		window.draw(cue.scue);
+		cue.draw(window);
+		cue.setPosition(b15);
+
 		//window.draw(b.c);
 		window.display();
 		while (window.pollEvent(event))
@@ -202,7 +184,7 @@ int main()
 		//b16.draw(window);
 
 
-		window.draw(cue.scue);
+		cue.draw(window);
 		window.display();
 		window.clear();
 	}

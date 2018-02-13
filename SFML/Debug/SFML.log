@@ -1,2 +1,4 @@
-﻿  Source1.cpp
-  SFML.vcxproj -> D:\OOP FINAL\SFML\Debug\SFML.exe
+﻿  cue.cpp
+c:\users\rock\desktop\pools\sfml\cue.cpp(30): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\rock\desktop\pools\sfml\cue.cpp(33): warning C4305: 'argument': truncation from 'double' to 'float'
+  SFML.vcxproj -> C:\Users\rock\Desktop\pools\Debug\SFML.exe
